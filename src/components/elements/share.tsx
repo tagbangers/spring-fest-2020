@@ -28,6 +28,7 @@ const Container = styled.a`
 const Blink = styled.span`
   font-family: ${p => p.theme.font.family.mono};
   display: inline-block;
+  opacity: 0.6;
 `
 
 const Share: React.FC<Props> = ({type}) => {
@@ -46,10 +47,7 @@ const Share: React.FC<Props> = ({type}) => {
   if (href === '') {
     return (
       <Container>
-        <Blink>
-          {['%', '$', '#', '@'][Math.floor(Math.random() * 5)]}
-          {['1', '_', '<', '='][Math.floor(Math.random() * 5)]}
-        </Blink>
+        <Blink>_</Blink>
       </Container>
     )
   }
