@@ -1,9 +1,8 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTwitter, faFacebookSquare } from '@fortawesome/free-brands-svg-icons'
 
 import { Wrapper } from 'components/layouts'
+import { Share } from 'components/elements'
 
 const Container = styled.header`
   background-color: ${p => p.theme.colors.primary.main};
@@ -34,25 +33,6 @@ const Shares = styled.div`
   justify-content: flex-end;
 `
 
-const ShareButton = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: transparent;
-  border: none;
-  width: 44px;
-  height: 44px;
-  border-radius: 44px;
-  margin: ${p => p.theme.spacing(0, 1)};
-
-  cursor: pointer;
-  transition: all 0.1s ease-in;
-
-  &:hover {
-    background-color: ${p => p.theme.colors.primary.darker};
-  }
-`
-
 const Header = () => {
   return (
     <Container>
@@ -67,12 +47,8 @@ const Header = () => {
             */}
           </Nav>
           <Shares>
-            <ShareButton>
-            <FontAwesomeIcon icon={faTwitter} />
-            </ShareButton>
-            <ShareButton>
-            <FontAwesomeIcon icon={faFacebookSquare} />
-            </ShareButton>
+            <Share type="twitter" />
+            <Share type="facebook" />
           </Shares>
         </Inner>
       </Wrapper>
