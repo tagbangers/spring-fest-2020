@@ -26,7 +26,6 @@ const IndexPage = () => {
       : window.console &&
         window.console.log('Made by Tagbangers - https://tagbangers.co.jp/')
 
-    console.log(location.origin)
     setMeta({
       ...meta,
       url: location.origin
