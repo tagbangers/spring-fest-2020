@@ -15,8 +15,7 @@ const Container = styled.div`
 `
 
 const Grid = styled.div`
-  height: 60vh;
-  padding: ${p => p.theme.spacing(16, 0)};
+  padding: 20% 0;
 
   ${p => p.theme.screen.md} {
     display: grid;
