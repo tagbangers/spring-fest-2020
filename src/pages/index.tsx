@@ -40,7 +40,7 @@ const IndexPage = () => {
         <meta property="og:title" content={meta.title} />
         <meta property="og:description" content={meta.description} />
         <meta name="keywords" content={meta.keyword} />
-        <meta property="og:type" content="blog" />
+        <meta property="og:type" content="website" />
         <meta property="og:url" content={meta.url} />
         <meta property="og:image" content={`${meta.url}/images/feed.png`} />
         <meta property="og:site_name" content={meta.title} />
