@@ -1,9 +1,8 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTwitter, faFacebookSquare } from '@fortawesome/free-brands-svg-icons'
 
-import {  Wrapper } from 'components/layouts'
+import { Wrapper } from 'components/layouts'
+import { Share } from 'components/elements'
 
 const Container = styled.footer`
   background-color: ${p => p.theme.colors.primary.main};
@@ -29,6 +28,9 @@ const Inner = styled.div`
 `
 
 const Socials = styled.div`
+  display: flex;
+  align-items: center;
+
   > * {
     margin: ${p => p.theme.spacing(0, 2)};
   }
@@ -57,8 +59,8 @@ const Footer = () => {
       <Wrapper>
         <Inner>
           <Socials>
-            <FontAwesomeIcon icon={faTwitter} size="2x" />
-            <FontAwesomeIcon icon={faFacebookSquare} size="2x" />
+            <Share type="twitter" />
+            <Share type="facebook" />
           </Socials>
           <Copyright>Copyright &copy; 2020 JSUG. All Rights Reserved.</Copyright>
         </Inner>

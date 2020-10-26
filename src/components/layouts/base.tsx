@@ -5,12 +5,13 @@ import { ThemeProvider } from 'styled-components'
 import { theme, GlobalStyles } from 'components/foundations'
 import { GlobalHeader, GlobalFooter } from 'components/blocks'
 
-const Layout: React.FC = ({ children }) => (
+const Layout: React.FC = ({ children }) => {
+  return (
   <>
     <Head>
-      <title>Spring Fest 2020_</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      <meta httpEquiv="x-ua-compatible" content="ie=edge" />
       <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Fira+Mono:wght@400;700&display=swap" rel="stylesheet" />
     </Head>
     <ThemeProvider theme={theme}>
@@ -22,6 +23,7 @@ const Layout: React.FC = ({ children }) => (
       <GlobalFooter />
     </ThemeProvider>
   </>
-)
+  )
+}
 
 export default Layout
