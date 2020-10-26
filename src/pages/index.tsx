@@ -43,6 +43,8 @@ const IndexPage = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content={meta.url} />
         <meta property="og:image" content={`${meta.url}/images/banner.png`} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content={meta.title} />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@jsug" />
