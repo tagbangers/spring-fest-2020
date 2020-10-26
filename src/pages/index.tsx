@@ -37,19 +37,19 @@ const IndexPage = () => {
     <BaseLayout>
       <Head>
         <title>{meta.title}</title>
+        <meta name="keywords" content={meta.keyword} />
         <meta property="og:title" content={meta.title} />
         <meta property="og:description" content={meta.description} />
-        <meta name="keywords" content={meta.keyword} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={meta.url} />
-        <meta property="og:image" content={`${meta.url}/images/feed.png`} />
+        <meta property="og:image" content={`${meta.url}/images/banner.png`} />
         <meta property="og:site_name" content={meta.title} />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@jsug" />
-        <meta name="twitter:url" content={`${meta.url}/images/feed.png`}/>
+        <meta name="twitter:url" content={`${meta.url}/images/banner.png`}/>
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
-        <meta name="twitter:image" content={`${meta.url}/images/feed.png`} />
+        <meta name="twitter:image" content={`${meta.url}/images/banner.png`} />
         <link rel="canonical" href={meta.url} />
       </Head>
       <Teaser />
