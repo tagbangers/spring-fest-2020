@@ -56,8 +56,8 @@ const Share: React.FC<Props> = ({type}) => {
     <Container
       href={
         type === 'twitter'
-        ? `https://twiter.com/share?url=${encodeURI(href)}&hashtags=jsug`
-        : `http://www.facebook.com/share.php?u=${encodeURI(href)}`
+        ? `https://twiter.com/share?url=${encodeURIComponent(href)}&hashtags=jsug`
+        : `http://www.facebook.com/share.php?u=${encodeURIComponent(href)}`
       }
       rel="nofollow" 
       target="_blank"
