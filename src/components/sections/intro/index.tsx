@@ -144,13 +144,7 @@ const Intro: React.FC = () => {
           <DescriptionBox>
             <h3>How to join</h3>
             <Description>
-              YouTubeを使って配信するためのURLを、イベント開始直前に参加者にお送りします。
-              <br />
-              <br />
-              多少、音声・画質問題が発生する可能性もありますことをご了承ください。
-              YouTube の接続 URL は開催前に Doorkeeperより送る予定です。
-              Doorkeeper
-              アカウント登録されているSNSサービスなどを登録しているメールアドレス宛に届きますので、そちらをご確認ください。
+              後日公開予定のタイムテーブルの各セッションYouTubeリンクからアクセスいただく予定です。
             </Description>
           </DescriptionBox>
         </GridTwo>
