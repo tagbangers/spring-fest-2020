@@ -8,8 +8,9 @@ const IndexPage = () => {
   const [meta, setMeta] = React.useState({
     title: 'Spring Fest 2020',
     keyword: 'Java Spring JSUG',
-    description: 'Spring FrameworkはJavaの代表的なアプリケーションフレームワークであり、世界中の多くのJavaアプリケーションで利用されています。ユーザ間での情報交換・交流の場を提供し、さらなるSpring Frameworkの認知度の向上、普及促進を図るため、本カンファレンスを開催いたします。',
-    url: ''
+    description:
+      'Spring FrameworkはJavaの代表的なアプリケーションフレームワークであり、世界中の多くのJavaアプリケーションで利用されています。ユーザ間での情報交換・交流の場を提供し、さらなるSpring Frameworkの認知度の向上、普及促進を図るため、本カンファレンスを開催いたします。',
+    url: '',
   })
 
   React.useEffect(() => {
@@ -26,10 +27,9 @@ const IndexPage = () => {
       : window.console &&
         window.console.log('Made by Tagbangers - https://tagbangers.co.jp/')
 
-    console.log(location.origin)
     setMeta({
       ...meta,
-      url: location.origin
+      url: location.origin,
     })
   }, [])
 
@@ -37,6 +37,7 @@ const IndexPage = () => {
     <BaseLayout>
       <Head>
         <title>{meta.title}</title>
+        <link rel="shortcut icon" href="/favicon.png"></link>
         <meta name="keywords" content={meta.keyword} />
         <meta property="og:title" content={meta.title} />
         <meta property="og:description" content={meta.description} />

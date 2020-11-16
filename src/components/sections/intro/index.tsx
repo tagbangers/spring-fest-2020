@@ -34,7 +34,7 @@ const DescriptionBox = styled.div`
 
   &::before {
     display: block;
-    content: "";
+    content: '';
     height: 4px;
     width: 20%;
     background-color: ${p => p.theme.colors.brand};
@@ -76,7 +76,7 @@ const LogoHolder = styled.div`
     margin: ${p => p.theme.spacing(8, 0)};
     &:after {
       display: block;
-      content: "";
+      content: '';
       height: 4px;
       width: 124px;
       background-color: ${p => p.theme.colors.brand};
@@ -109,33 +109,42 @@ const Intro: React.FC = () => {
     <Container>
       <Wrapper>
         <GridOneThree>
-          <div/>
+          <div />
           <Contents>
             <LogoHolder>
               <Logo />
             </LogoHolder>
             <Description>
-              Spring FrameworkはJavaの代表的なアプリケーションフレームワークであり、 登場した2002年より現在に至るまで世界中の多くのJavaアプリケーションで利用されています。 
-              <br/>
-              <br/>
-              国内でも広く利用されておりますが、ユーザ間での情報交換・交流の場を提供し、 さらなるSpring Frameworkの認知度の向上、普及促進を図るため、本カンファレンスを開催いたします。
-              <br/>
-              <br/>
+              Spring
+              FrameworkはJavaの代表的なアプリケーションフレームワークであり、
+              登場した2002年より現在に至るまで世界中の多くのJavaアプリケーションで利用されています。
+              <br />
+              <br />
+              国内でも広く利用されておりますが、ユーザ間での情報交換・交流の場を提供し、
+              さらなるSpring
+              Frameworkの認知度の向上、普及促進を図るため、本カンファレンスを開催いたします。
+              <br />
+              <br />
               日本Springユーザ会
             </Description>
           </Contents>
         </GridOneThree>
         <GridTwo>
           <DescriptionBox>
-            <h3>Exceptional<br/>Speakers</h3>
+            <h3>Outline 2020</h3>
             <Description>
-            大まかな内容など。track1,2に分かれていて、2は初心者むけです的な説明。目的も複数要件と:抜き出しタイトルたます以外、閲覧するれる要件に許諾物独自の著作俳句でしれるてはさませ、方針の文章は、括弧し見解が侵害促し下による代表公正でしょませているませな。
+              今年はオンラインでの開催となります。Beginner track と Advanced /
+              Usecase track の2トラックに分かれて配信いたします。
+              <br />
+              <br />
+              今回はスポンサーの登壇はございません。従来のSpring
+              Festとは異なった丸一日開催の本イベントを、コメントや質問、SNSへ投稿でアクティブに参加し、ぜひお楽しみください。
             </Description>
           </DescriptionBox>
           <DescriptionBox>
-            <h3>Remote safe,<br/>Communicate live</h3>
+            <h3>How to join</h3>
             <Description>
-            オンラインでの開催に関する説明。録画、Zoom、後でYoutubeにあがるなど。および、主著作権と、引用いるフリーの事典、文章が重要に考慮さことをするて、日本語ペディアの注意でメディアに著作することをありて、著作有するた主従が確認、著作権紛争ますですとの創作をあるものは、ごく短いとあるばよいないなけれ。
+              後日公開予定のタイムテーブルの各セッションYouTubeリンクからアクセスいただく予定です。
             </Description>
           </DescriptionBox>
         </GridTwo>
