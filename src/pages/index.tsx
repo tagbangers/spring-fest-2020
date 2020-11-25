@@ -2,7 +2,7 @@ import * as React from 'react'
 import Head from 'next/head'
 
 import { BaseLayout } from 'components/layouts'
-import { Teaser, Intro } from 'components/sections'
+import { Teaser, Intro, Goods } from 'components/sections'
 
 const IndexPage = () => {
   const [meta, setMeta] = React.useState({
@@ -57,6 +57,7 @@ const IndexPage = () => {
       </Head>
       <Teaser />
       <Intro />
+      <Goods />
     </BaseLayout>
   )
 }

@@ -8,10 +8,10 @@ const Container = styled.footer`
   background-color: ${p => p.theme.colors.primary.main};
   background-image: url('/images/wave-bg.png');
   background-repeat: repeat;
-  padding: ${p => p.theme.spacing(1, 0, 2, 0)};
+  padding: ${p => p.theme.spacing}px 0 ${p => p.theme.spacing * 2}px 0;
 
   ${p => p.theme.screen.md} {
-    padding: ${p => p.theme.spacing(2, 0)};
+    padding: ${p => p.theme.spacing * 2}px 0;
   }
 `
 
@@ -32,13 +32,13 @@ const Socials = styled.div`
   align-items: center;
 
   > * {
-    margin: ${p => p.theme.spacing(0, 2)};
+    margin: 0 ${p => p.theme.spacing * 2}px;
   }
 
-  margin: ${p => p.theme.spacing(2)} auto;
+  margin: 0 ${p => p.theme.spacing * 2}px auto;
 
   ${p => p.theme.screen.md} {
-    margin: ${p => p.theme.spacing(4)} 0;
+    margin: 0 ${p => p.theme.spacing * 4}px 0;
   }
 `
 
@@ -47,7 +47,7 @@ const Copyright = styled.small`
   text-align: center;
   font-family: ${p => p.theme.font.family.mono};
   font-size: ${p => p.theme.font.size.sm};
-  
+
   ${p => p.theme.screen.md} {
     text-align: right;
   }
@@ -62,7 +62,9 @@ const Footer = () => {
             <Share type="twitter" />
             <Share type="facebook" />
           </Socials>
-          <Copyright>Copyright &copy; 2020 JSUG. All Rights Reserved.</Copyright>
+          <Copyright>
+            Copyright &copy; 2020 JSUG. All Rights Reserved.
+          </Copyright>
         </Inner>
       </Wrapper>
     </Container>
