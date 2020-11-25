@@ -65,7 +65,7 @@ enum SelectedTab {
   GRADLE,
 }
 
-const mavenCommand = `$ ./mvnw spring-boot:run
+const mavenCommand = `$ ./mvnw spring-fest:run
 
    .   ____          _            __ _ _
   /\\\\ / ___'_ __ _ _(_)_ __  __ _ \\ \\ \\ \\
@@ -76,7 +76,7 @@ const mavenCommand = `$ ./mvnw spring-boot:run
  :: Spring Fest ::         (v2020.RELEASE)
 `
 
-const gradleCommand = `$ ./gradlew bootRun
+const gradleCommand = `$ ./gradlew festRun
 
    .   ____          _            __ _ _
   /\\\\ / ___'_ __ _ _(_)_ __  __ _ \\ \\ \\ \\
