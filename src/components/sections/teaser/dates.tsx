@@ -11,26 +11,26 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   color: ${p => p.theme.colors.white};
-  margin: ${p => p.theme.spacing(5, 1)};
+  margin: ${p => p.theme.spacing * 5}px ${p => p.theme.spacing}px};
   font-size: ${p => p.theme.font.size.rg};
 
   ${p => p.theme.screen.md} {
     font-size: ${p => p.theme.font.size.md};
-    margin-bottom: ${p => p.theme.spacing(20)};
+    margin-bottom: ${p => p.theme.spacing * 20}px;
   }
 `
 
 const On = styled.p`
   background-color: ${p => p.theme.colors.brand};
-  padding: ${p => p.theme.spacing(0.1, 2)};
+  padding: ${p => p.theme.spacing * 0.1}px ${p => p.theme.spacing * 2}px;
 
   ${p => p.theme.screen.md} {
-    padding: ${p => p.theme.spacing(0.5, 5)};
+    padding: ${p => p.theme.spacing * 0.5}px ${p => p.theme.spacing * 5}px;
   }
 `
 
 const At = styled.p`
-  margin: ${p => p.theme.spacing(0, 5)};
+  margin: 0 ${p => p.theme.spacing * 5}px;
 `
 
 const Dates: React.FC<Props> = ({ on, at }) => {
@@ -42,4 +42,4 @@ const Dates: React.FC<Props> = ({ on, at }) => {
   )
 }
 
-export default Dates 
+export default Dates

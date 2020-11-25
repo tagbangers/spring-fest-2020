@@ -1,6 +1,6 @@
 import * as React from 'react'
 import VisibilitySensor from 'react-visibility-sensor'
-import Typist from 'react-typist';
+import Typist from 'react-typist'
 import styled from 'styled-components'
 
 import { theme } from 'components/foundations'
@@ -17,7 +17,6 @@ interface TextProps {
   size: string
 }
 
-
 const Text = styled.div`
   display: flex;
   align-items: center;
@@ -27,7 +26,6 @@ const Text = styled.div`
   font-weight: 300;
   user-select: none;
 
-
   .Cursor {
     display: inline-block;
 
@@ -36,9 +34,15 @@ const Text = styled.div`
       animation: blinks 1s linear infinite;
 
       @keyframes blinks {
-        0% { opacity:0; }
-        50% { opacity:1; }
-        100% { opacity:0; }
+        0% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
       }
     }
   }
@@ -46,14 +50,19 @@ const Text = styled.div`
 
 const Prefix = styled.span`
   display: inline-block;
-  margin-right: ${p => p.theme.spacing(2)};
+  margin-right: ${p => p.theme.spacing * 2}px;
 
   ${p => p.theme.screen.md} {
-    margin-right: ${p => p.theme.spacing(5)};
+    margin-right: ${p => p.theme.spacing * 5}px;
   }
 `
 
-const Prompt: React.FC<Props> = ({ children, delay = 0, color = theme.colors.brand, size = theme.font.size.xl }) => {
+const Prompt: React.FC<Props> = ({
+  children,
+  delay = 0,
+  color = theme.colors.brand,
+  size = theme.font.size.xl,
+}) => {
   const [active, setActive] = React.useState(false)
 
   const handleChange = (isVisible: boolean) => {
@@ -62,24 +71,21 @@ const Prompt: React.FC<Props> = ({ children, delay = 0, color = theme.colors.bra
 
   return (
     <VisibilitySensor onChange={handleChange}>
-        <Text
-          color={color}
-          size={size}
-        >
-          <Prefix>{'> '}</Prefix>
-          {active && (
-            <Typist
-              cursor={{
-                show: true,
-                blink: true,
-                element: '_'
-              }}
-            >
-              <Typist.Delay ms={delay} />
-              {children}
-            </Typist>
-          )}
-        </Text>
+      <Text color={color} size={size}>
+        <Prefix>{'> '}</Prefix>
+        {active && (
+          <Typist
+            cursor={{
+              show: true,
+              blink: true,
+              element: '_',
+            }}
+          >
+            <Typist.Delay ms={delay} />
+            {children}
+          </Typist>
+        )}
+      </Text>
     </VisibilitySensor>
   )
 }

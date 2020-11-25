@@ -7,7 +7,7 @@ import { Share } from 'components/elements'
 const Container = styled.header`
   background-color: ${p => p.theme.colors.primary.main};
   color: ${p => p.theme.colors.white};
-  padding: ${p => p.theme.spacing(2, 0)};
+  padding: ${p => p.theme.spacing * 2}px 0;
 `
 
 const Inner = styled.div`
