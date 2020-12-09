@@ -8,7 +8,7 @@ import { Prompt } from 'components/elements'
 
 const Container = styled.div`
   font-family: ${p => p.theme.font.family.mono};
-  margin: ${p => p.theme.spacing * 4}px 0 ${p => p.theme.spacing * 8}px 0;
+  margin: ${p => p.theme.spacing * 10}px 0 ${p => p.theme.spacing * 8}px 0;
 `
 
 const Title = styled.h3`
@@ -124,7 +124,7 @@ const Goods: React.FC = () => {
           <code></code>
         </TabContents>
         <LinkButton href="https://suzuri.jp/JSUG" target="_blank">
-          {'￥2,400 -> Order now'}
+          {'￥2,750(Tax excluded) |-> Order'}
         </LinkButton>
       </Wrapper>
     </Container>

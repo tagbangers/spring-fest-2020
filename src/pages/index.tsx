@@ -1,10 +1,53 @@
 import * as React from 'react'
 import Head from 'next/head'
+import unfetch from 'isomorphic-unfetch'
 
 import { BaseLayout } from 'components/layouts'
-import { Teaser, Intro, Goods } from 'components/sections'
+import { Loader } from 'components/blocks'
+import { Teaser, Intro, Goods, TimeTable, Speakers } from 'components/sections'
+
+import { Session, Speaker, mergeSessions } from 'entities/sessions'
+
+const GS =
+  'https://script.google.com/macros/s/AKfycbzkcMkU3Fcj5hyMQpMsKhYnLeLtRCtwTMxiQmJuz513p2nlXfw/exec'
+
+interface State {
+  loading: boolean
+  sessions: Session[]
+  speakers: Speaker[]
+}
+
+enum ActionType {
+  FETCH_STARTED = 'fetchStarted',
+  FETCH_SUCCEEDED = 'fetchSucceeded',
+  FETCH_FAILED = 'fetchFailed',
+}
+interface Action {
+  type: ActionType
+  payload: State
+}
+
+const initialState = {
+  loading: true,
+  sessions: [],
+  speakers: [],
+}
+
+const reducer: React.Reducer<State, Action> = (state, action) => {
+  switch (action.type) {
+    case 'fetchStarted':
+      return { ...state, loading: true }
+    case 'fetchSucceeded':
+      return { ...action.payload, loading: false }
+    case 'fetchFailed':
+      return { ...action.payload, loading: false }
+    default:
+      return state
+  }
+}
 
 const IndexPage = () => {
+  const [state, dispatch] = React.useReducer(reducer, initialState)
   const [meta, setMeta] = React.useState({
     title: 'Spring Fest 2020',
     keyword: 'Java Spring JSUG',
@@ -12,6 +55,17 @@ const IndexPage = () => {
       'Spring FrameworkはJavaの代表的なアプリケーションフレームワークであり、世界中の多くのJavaアプリケーションで利用されています。ユーザ間での情報交換・交流の場を提供し、さらなるSpring Frameworkの認知度の向上、普及促進を図るため、本カンファレンスを開催いたします。',
     url: '',
   })
+
+  const fetcher = async () => {
+    const resp = await unfetch(GS)
+    const json = await resp.json()
+    dispatch({ type: ActionType.FETCH_SUCCEEDED, payload: json })
+  }
+
+  React.useEffect(() => {
+    dispatch({ type: ActionType.FETCH_STARTED, payload: initialState })
+    fetcher()
+  }, [])
 
   React.useEffect(() => {
     navigator.userAgent.toLowerCase().indexOf('chrome') > -1
@@ -57,6 +111,14 @@ const IndexPage = () => {
       </Head>
       <Teaser />
       <Intro />
+      {state.loading ? (
+        <Loader />
+      ) : (
+        <>
+          <TimeTable sessions={mergeSessions(state.sessions, state.speakers)} />
+          <Speakers speakers={state.speakers} />
+        </>
+      )}
       <Goods />
     </BaseLayout>
   )

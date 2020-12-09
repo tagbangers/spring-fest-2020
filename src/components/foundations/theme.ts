@@ -8,6 +8,8 @@ const theme = {
     white: '#fff',
     black: '#2D2D2D',
     warning: '#F9F4B0',
+    gray: '#787878',
+    palegray: '#D8D8D8',
   },
   font: {
     size: {
