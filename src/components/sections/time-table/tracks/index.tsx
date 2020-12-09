@@ -20,7 +20,7 @@ const Container = styled.div`
 const TabContainer = styled.div`
   display: flex;
   align-items: center;
-  border-bottom: 1px solid ${props => props.theme.colors.brand};
+  border-bottom: 1px solid ${props => props.theme.colors.palegray};
   margin: ${props => props.theme.spacing * 4}px 0;
 `
 
@@ -30,7 +30,7 @@ interface TabProps {
 }
 
 const Tab = styled.div`
-  padding: ${props => props.theme.spacing * 2}px
+  padding: ${props => props.theme.spacing * 1}px
     ${props => props.theme.spacing * 2}px;
   font-family: ${props => props.theme.font.family.mono};
   font-size: ${props => props.theme.font.size.sm};
@@ -48,7 +48,7 @@ const Tab = styled.div`
     width: auto;
     text-align: left;
     font-size: ${props => props.theme.font.size.md};
-    padding: ${props => props.theme.spacing * 2}px
+    padding: ${props => props.theme.spacing * 1}px
       ${props => props.theme.spacing * 4}px;
   }
 `
@@ -99,13 +99,13 @@ const Tracks: React.FC<Props> = ({
             onClick={toggleTab(Tabs.Advanced)}
             active={activeTab === Tabs.Advanced}
           >
-            _Advanced Track;
+            1. _Advanced Track;
           </Tab>
           <Tab
             onClick={toggleTab(Tabs.Beginner)}
             active={activeTab === Tabs.Beginner}
           >
-            _Beginner Track;
+            2. _Beginner Track;
           </Tab>
         </TabContainer>
         <TabContents>
