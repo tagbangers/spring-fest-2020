@@ -74,14 +74,6 @@ const LogoHolder = styled.div`
 
   ${p => p.theme.screen.md} {
     margin: ${p => p.theme.spacing * 8}px 0;
-    &:after {
-      display: block;
-      content: '';
-      height: 4px;
-      width: 124px;
-      background-color: ${p => p.theme.colors.brand};
-      margin-top: ${p => p.theme.spacing * 6};
-    }
   }
 `
 

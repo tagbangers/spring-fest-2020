@@ -110,15 +110,18 @@ const IndexPage = () => {
         <link rel="canonical" href={meta.url} />
       </Head>
       <Teaser />
+      <span id="about" />
       <Intro />
       {state.loading ? (
         <Loader />
       ) : (
         <>
+          <span id="sessions" />
           <TimeTable
             sessions={mergeSessions(state.sessions, state.speakers)}
             speakers={state.speakers}
           />
+          <span id="speakers" />
           <Speakers speakers={state.speakers} />
         </>
       )}

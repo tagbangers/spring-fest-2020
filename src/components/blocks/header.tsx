@@ -21,11 +21,11 @@ const Nav = styled.nav`
   color: ${p => p.theme.colors.white};
 `
 
-// const NavItem = styled.a`
-//   display: block;
-//   margin: ${p => p.theme.spacing(0, 4)};
-//   font-family: ${p => p.theme.font.family.mono};
-// `
+const NavItem = styled.a`
+  display: block;
+  margin: 0 ${p => p.theme.spacing * 4}px;
+  font-family: ${p => p.theme.font.family.mono};
+`
 
 const Shares = styled.div`
   display: flex;
@@ -40,11 +40,9 @@ const Header = () => {
         <Inner>
           <div />
           <Nav>
-            {/*
-            <NavItem href="#">#ABOUT</NavItem>
-            <NavItem href="#">#SESSIONS</NavItem>
-            <NavItem href="#">#SPEAKERS</NavItem>
-            */}
+            <NavItem href="#about">#ABOUT</NavItem>
+            <NavItem href="#sessions">#SESSIONS</NavItem>
+            <NavItem href="#speakers">#SPEAKERS</NavItem>
           </Nav>
           <Shares>
             <Share type="twitter" />
