@@ -6,7 +6,6 @@ export interface Session {
   start: string
   end: string
   hashtag: string
-  zoom: string
   youtube: string
   enquete: string
   material: string
@@ -27,7 +26,6 @@ export type MergedSession = {
   start: string
   end: string
   hashtag: string
-  zoom: string
   youtube: string
   enquete: string
   material: string

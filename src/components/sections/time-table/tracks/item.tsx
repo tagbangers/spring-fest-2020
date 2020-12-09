@@ -1,20 +1,22 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import { find } from 'ramda'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons'
 import {
-  faVideo,
   faClipboard,
   faChalkboardTeacher,
 } from '@fortawesome/free-solid-svg-icons'
 import Linkify from 'react-linkify'
 import Tooltip from 'react-tooltip'
 
-import { MergedSession } from 'entities/sessions'
+import { MergedSession, Speaker } from 'entities/sessions'
 import { theme } from 'components/foundations'
+import { Speaker as SpeakerModal } from 'components/blocks'
 
 interface Props {
   session: MergedSession
+  speakers: Speaker[]
 }
 
 const Container = styled.div`
@@ -44,7 +46,7 @@ const SpeakerHolder = styled.div`
   margin: 0 ${props => props.theme.spacing * 2}px;
 `
 
-const Speaker = styled.p`
+const Name = styled.p`
   font-weight: bold;
   font-size: ${props => props.theme.font.size.rg};
 `
@@ -115,8 +117,20 @@ const getTime = (dateStr: string) => {
   return `${pad(hour)}:${pad(min)}`
 }
 
-const Track: React.FC<Props> = ({ session }) => {
-  console.log(session)
+const Track: React.FC<Props> = ({ session, speakers }) => {
+  const [speaker, setSpeaker] = React.useState<Speaker | null>(null)
+
+  const handleClickSpeaker = (slug: string) => () => {
+    const f = find(s => s.slug === slug, speakers)
+    if (f) {
+      setSpeaker(f)
+    }
+  }
+
+  const handleClose = () => {
+    setSpeaker(null)
+  }
+
   return (
     <Container>
       <Header>
@@ -124,22 +138,14 @@ const Track: React.FC<Props> = ({ session }) => {
           {getTime(session.start)} - {getTime(session.end)}
         </Time>
         {session.speakers.map(s => (
-          <SpeakerHolder key={s.slug}>
-            <Speaker>{s.name}</Speaker>
+          <SpeakerHolder key={s.slug} onClick={handleClickSpeaker(s.slug)}>
+            <Name>{s.name}</Name>
             <Org>{s.org}</Org>
           </SpeakerHolder>
         ))}
       </Header>
       <Divider />
       <MediaHolder>
-        {session.zoom && (
-          <Media href={session.zoom} target="_blank" data-tip data-for="zoom">
-            <FontAwesomeIcon icon={faVideo} color="#0091FF" />
-            <Tooltip id="zoom" effect="solid">
-              Zoomで視聴する
-            </Tooltip>
-          </Media>
-        )}
         {session.youtube && (
           <Media
             href={session.youtube}
@@ -149,7 +155,7 @@ const Track: React.FC<Props> = ({ session }) => {
           >
             <FontAwesomeIcon icon={faYoutube} color="#DE5B40" />
             <Tooltip id="youtube" effect="solid">
-              Youtubeで視聴する
+              Youtube Liveで視聴する
             </Tooltip>
           </Media>
         )}
@@ -186,6 +192,7 @@ const Track: React.FC<Props> = ({ session }) => {
       <Description>
         <Linkify>{session.description}</Linkify>
       </Description>
+      {speaker && <SpeakerModal speaker={speaker} onClose={handleClose} />}
     </Container>
   )
 }

@@ -2,6 +2,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 
 import { Speaker } from 'entities/sessions'
+import { Speaker as SpeakerModal } from 'components/blocks'
 
 interface Props {
   speaker: Speaker
@@ -16,6 +17,7 @@ const Container = styled.div`
 const ProfileImage = styled.img`
   display: block;
   margin: 0 auto;
+  cursor: pointer;
 `
 
 const Content = styled.div`
@@ -29,6 +31,7 @@ const Name = styled.p`
 
 const Org = styled.p`
   font-size: ${props => props.theme.font.size.sm};
+  color: ${props => props.theme.colors.brand};
   margin-left: ${props => props.theme.spacing * 2}px;
 `
 
@@ -41,19 +44,35 @@ const Divider = styled.span`
 `
 
 const Item: React.FC<Props> = ({ speaker }) => {
+  const [speakerVisibility, setSpeakerVisibility] = React.useState(false)
+
+  const handleClickSpeaker = () => {
+    setSpeakerVisibility(true)
+  }
+
+  const handleClose = () => {
+    setSpeakerVisibility(false)
+  }
+
   return (
-    <Container>
-      <ProfileImage
-        src={`/images/profiles/${speaker.slug}.jpg`}
-        width={185}
-        height={262}
-      />
-      <Content>
-        <Name>{speaker.name}</Name>
-        <Divider />
-        <Org>{speaker.org}</Org>
-      </Content>
-    </Container>
+    <>
+      <Container>
+        <ProfileImage
+          src={`/images/profiles/${speaker.slug}.jpg`}
+          width={185}
+          height={262}
+          onClick={handleClickSpeaker}
+        />
+        <Content>
+          <Name>{speaker.name}</Name>
+          <Divider />
+          <Org>{speaker.org}</Org>
+        </Content>
+      </Container>
+      {speakerVisibility && (
+        <SpeakerModal speaker={speaker} onClose={handleClose} />
+      )}
+    </>
   )
 }
 

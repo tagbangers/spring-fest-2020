@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 import { groupBy } from 'ramda'
 
-import { Sessions } from 'entities/sessions'
+import { Sessions, Speaker } from 'entities/sessions'
 import { Wrapper } from 'components/layouts'
 import { theme } from 'components/foundations'
 import { Prompt } from 'components/elements'
@@ -11,6 +11,7 @@ import Tracks from './tracks'
 
 interface Props {
   sessions: Sessions
+  speakers: Speaker[]
 }
 
 const Container = styled.div`
@@ -20,7 +21,7 @@ const Container = styled.div`
   padding: ${props => props.theme.spacing * 10}px 0 0 0;
 `
 
-const TimeTable: React.FC<Props> = ({ sessions }) => {
+const TimeTable: React.FC<Props> = ({ sessions, speakers }) => {
   const grouped = groupBy(
     s => (s.track === 'advanced' ? 'advanced' : 'beginners'),
     sessions
@@ -35,6 +36,7 @@ const TimeTable: React.FC<Props> = ({ sessions }) => {
         <Tracks
           advancedTracks={grouped['advanced']}
           beginnerTracks={grouped['beginners']}
+          speakers={speakers}
         />
       </Wrapper>
     </Container>

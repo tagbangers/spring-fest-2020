@@ -115,7 +115,10 @@ const IndexPage = () => {
         <Loader />
       ) : (
         <>
-          <TimeTable sessions={mergeSessions(state.sessions, state.speakers)} />
+          <TimeTable
+            sessions={mergeSessions(state.sessions, state.speakers)}
+            speakers={state.speakers}
+          />
           <Speakers speakers={state.speakers} />
         </>
       )}

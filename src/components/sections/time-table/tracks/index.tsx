@@ -3,13 +3,14 @@ import styled from 'styled-components'
 
 import { Wrapper } from 'components/layouts'
 import { ITheme } from 'components/foundations/theme'
-import { Sessions } from 'entities/sessions'
+import { Sessions, Speaker } from 'entities/sessions'
 
 import Track from './track'
 
 interface Props {
   advancedTracks: Sessions
   beginnerTracks: Sessions
+  speakers: Speaker[]
 }
 
 const Container = styled.div`
@@ -80,7 +81,11 @@ enum Tabs {
   Beginner,
 }
 
-const Tracks: React.FC<Props> = ({ advancedTracks, beginnerTracks }) => {
+const Tracks: React.FC<Props> = ({
+  advancedTracks,
+  beginnerTracks,
+  speakers,
+}) => {
   const [activeTab, setTab] = React.useState(Tabs.Advanced)
   const toggleTab = (tab: Tabs) => () => {
     setTab(tab)
@@ -106,9 +111,9 @@ const Tracks: React.FC<Props> = ({ advancedTracks, beginnerTracks }) => {
         <TabContents>
           <Notion>※ 現在、各セッションは仮の内容です</Notion>
           {activeTab === Tabs.Advanced ? (
-            <Track sessions={advancedTracks} />
+            <Track sessions={advancedTracks} speakers={speakers} />
           ) : (
-            <Track sessions={beginnerTracks} />
+            <Track sessions={beginnerTracks} speakers={speakers} />
           )}
         </TabContents>
       </Wrapper>
