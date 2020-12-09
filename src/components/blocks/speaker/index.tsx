@@ -86,7 +86,7 @@ const Org = styled.p`
 const Profile = styled.pre`
   font-size: ${props => props.theme.font.size.rg};
   margin-left: ${props => props.theme.spacing * 2}px;
-  white-space: break-spaces;
+  white-space: pre-wrap;
 `
 
 const Divider = styled.span`
