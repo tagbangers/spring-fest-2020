@@ -44,6 +44,7 @@ const Title = styled.h2`
 
 const SpeakerHolder = styled.div`
   margin: 0 ${props => props.theme.spacing * 2}px;
+  cursor: pointer;
 `
 
 const Name = styled.p`

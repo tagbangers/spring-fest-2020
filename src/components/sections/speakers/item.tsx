@@ -56,12 +56,11 @@ const Item: React.FC<Props> = ({ speaker }) => {
 
   return (
     <>
-      <Container>
+      <Container onClick={handleClickSpeaker}>
         <ProfileImage
           src={`/images/profiles/${speaker.slug}.jpg`}
           width={185}
           height={262}
-          onClick={handleClickSpeaker}
         />
         <Content>
           <Name>{speaker.name}</Name>
