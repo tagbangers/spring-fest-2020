@@ -83,9 +83,10 @@ const Org = styled.p`
   color: ${props => props.theme.colors.brand};
 `
 
-const Profile = styled.p`
+const Profile = styled.pre`
   font-size: ${props => props.theme.font.size.rg};
   margin-left: ${props => props.theme.spacing * 2}px;
+  white-space: break-spaces;
 `
 
 const Divider = styled.span`
@@ -117,7 +118,7 @@ const Item: React.FC<Props> = ({ speaker, onClose }) => {
           {speaker.profile && (
             <>
               <Divider />
-              <Profile>{speaker.profile}</Profile>
+              <Profile>{`${speaker.profile}`}</Profile>
             </>
           )}
         </Content>
