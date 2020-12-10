@@ -38,13 +38,30 @@ const Time = styled.div`
 
 const Title = styled.h2`
   margin: ${props => props.theme.spacing * 3}px 0;
-  font-size: ${props => props.theme.font.size.md};
+  font-size: ${props => props.theme.font.size.rg};
   font-weight: bold;
+
+  ${props => props.theme.screen.md} {
+    font-size: ${props => props.theme.font.size.md};
+  }
+`
+
+const Speakers = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  ${props => props.theme.screen.md} {
+    flex-direction: row;
+  }
 `
 
 const SpeakerHolder = styled.div`
-  margin: 0 ${props => props.theme.spacing * 2}px;
+  margin-bottom: ${props => props.theme.spacing * 2}px;
   cursor: pointer;
+
+  ${props => props.theme.screen.md} {
+    margin: 0 ${props => props.theme.spacing * 2}px;
+  }
 `
 
 const Name = styled.p`
@@ -59,11 +76,17 @@ const Org = styled.span`
 
 const Description = styled.p`
   color: ${props => props.theme.colors.gray};
-  font-size: ${props => props.theme.font.size.rg};
-  line-height: 1.8;
+  font-size: ${props => props.theme.font.size.sm};
+  line-height: 1.6;
+  word-break: break-all;
 
   a {
     color: ${props => props.theme.colors.brand};
+  }
+
+  ${props => props.theme.screen.md} {
+    font-size: ${props => props.theme.font.size.rg};
+    line-height: 1.8;
   }
 `
 
@@ -138,12 +161,14 @@ const Track: React.FC<Props> = ({ session, speakers }) => {
         <Time>
           {getTime(session.start)} - {getTime(session.end)}
         </Time>
-        {session.speakers.map(s => (
-          <SpeakerHolder key={s.slug} onClick={handleClickSpeaker(s.slug)}>
-            <Name>{s.name}</Name>
-            <Org>{s.org}</Org>
-          </SpeakerHolder>
-        ))}
+        <Speakers>
+          {session.speakers.map(s => (
+            <SpeakerHolder key={s.slug} onClick={handleClickSpeaker(s.slug)}>
+              <Name>{s.name}</Name>
+              <Org>{s.org}</Org>
+            </SpeakerHolder>
+          ))}
+        </Speakers>
       </Header>
       <Divider />
       <MediaHolder>

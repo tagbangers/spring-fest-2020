@@ -18,6 +18,7 @@ const ProfileImage = styled.img`
   display: block;
   margin: 0 auto;
   cursor: pointer;
+  width: 185px;
 `
 
 const Content = styled.div`
@@ -26,13 +27,18 @@ const Content = styled.div`
 
 const Name = styled.p`
   font-size: ${props => props.theme.font.size.rg};
-  margin-left: ${props => props.theme.spacing * 2}px;
+  ${props => props.theme.screen.md} {
+    margin-left: ${props => props.theme.spacing * 2}px;
+  }
 `
 
 const Org = styled.p`
   font-size: ${props => props.theme.font.size.sm};
   color: ${props => props.theme.colors.brand};
-  margin-left: ${props => props.theme.spacing * 2}px;
+
+  ${props => props.theme.screen.md} {
+    margin-left: ${props => props.theme.spacing * 2}px;
+  }
 `
 
 const Divider = styled.span`
@@ -57,11 +63,7 @@ const Item: React.FC<Props> = ({ speaker }) => {
   return (
     <>
       <Container onClick={handleClickSpeaker}>
-        <ProfileImage
-          src={`/images/profiles/${speaker.slug}.jpg`}
-          width={185}
-          height={262}
-        />
+        <ProfileImage src={`/images/profiles/${speaker.slug}.jpg`} />
         <Content>
           <Name>{speaker.name}</Name>
           <Divider />

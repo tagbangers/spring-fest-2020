@@ -44,20 +44,37 @@ const Tab = styled.button`
 
 const TabContents = styled.div`
   background-color: ${p => p.theme.colors.black};
-  padding: ${p => p.theme.spacing * 4}px;
+  padding: ${p => p.theme.spacing * 1}px;
   line-height: 1;
   margin-bottom: ${p => p.theme.spacing * 4}px;
+
+  ${p => p.theme.screen.md} {
+    padding: ${p => p.theme.spacing * 4}px;
+  }
 
   code {
     font-family: ${p => p.theme.font.family.code};
     color: ${p => p.theme.colors.white};
+    font-size: 0.7em;
+
+    ${p => p.theme.screen.md} {
+      font-size: ${p => p.theme.font.size.rg};
+    }
   }
 `
 
 const LinkButton = styled.a`
+  width: 100%;
+  display: block;
   color: ${p => p.theme.colors.white};
   background-color: ${p => p.theme.colors.brand};
   padding: ${p => p.theme.spacing * 2}px ${p => p.theme.spacing * 3}px;
+  text-align: center;
+
+  ${p => p.theme.screen.md} {
+    width: auto;
+    display: inline-block;
+  }
 `
 
 enum SelectedTab {
@@ -124,7 +141,7 @@ const Goods: React.FC = () => {
           <code></code>
         </TabContents>
         <LinkButton href="https://suzuri.jp/JSUG" target="_blank">
-          {'￥2,750(Tax excluded) |-> Order'}
+          {'￥2,750(Tax excluded)'}
         </LinkButton>
       </Wrapper>
     </Container>

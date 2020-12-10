@@ -12,13 +12,21 @@ const Container = styled.header`
 
 const Inner = styled.div`
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr;
+
+  ${props => props.theme.screen.md} {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
 `
 
 const Nav = styled.nav`
-  display: flex;
-  align-items: center;
+  display: none;
   color: ${p => p.theme.colors.white};
+
+  ${props => props.theme.screen.md} {
+    display: flex;
+    align-items: center;
+  }
 `
 
 const NavItem = styled.a`

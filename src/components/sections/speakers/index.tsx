@@ -19,10 +19,9 @@ const Container = styled.div`
 
 const SpeakersHolder = styled.div`
   margin: ${p => p.theme.spacing * 8}px auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
 
   ${theme.screen.md} {
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 `

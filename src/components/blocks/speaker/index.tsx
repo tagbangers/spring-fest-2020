@@ -25,18 +25,13 @@ const Container = styled.div`
   justify-content: center;
 `
 
-const Header = styled.header`
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-  padding: ${props => props.theme.spacing * 2}px;
-`
-
 const Main = styled.div`
   display: flex;
+  flex-direction: column;
   margin: auto;
 
   ${props => props.theme.screen.md} {
+    flex-direction: row;
     align-items: center;
     width: 70%;
   }
@@ -44,7 +39,7 @@ const Main = styled.div`
 
 const CloseButton = styled.div`
   color: ${props => props.theme.colors.white};
-  margin: ${props => props.theme.spacing * 3}px 0;
+  margin: ${props => props.theme.spacing * 1}px 0;
   cursor: pointer;
   width: 44px;
   height: 44px;
@@ -56,6 +51,10 @@ const CloseButton = styled.div`
   &:hover {
     background-color: rgba(255, 255, 255, 0.05);
   }
+
+  ${props => props.theme.screen.md} {
+    margin: ${props => props.theme.spacing * 3}px 0;
+  }
 `
 
 const Figure = styled.figure`
@@ -64,7 +63,12 @@ const Figure = styled.figure`
 
 const ProfileImage = styled.img`
   display: block;
-  margin: 0 auto;
+  width: 120px;
+
+  ${props => props.theme.screen.md} {
+    margin: 0 auto;
+    width: auto;
+  }
 `
 
 const Content = styled.div`
@@ -73,20 +77,32 @@ const Content = styled.div`
 `
 
 const Name = styled.p`
-  font-size: ${props => props.theme.font.size.lg};
+  font-size: ${props => props.theme.font.size.rg};
   margin-left: ${props => props.theme.spacing * 2}px;
+
+  ${props => props.theme.screen.md} {
+    font-size: ${props => props.theme.font.size.lg};
+  }
 `
 
 const Org = styled.p`
-  font-size: ${props => props.theme.font.size.rg};
+  font-size: ${props => props.theme.font.size.sm};
   margin-left: ${props => props.theme.spacing * 2}px;
   color: ${props => props.theme.colors.brand};
+
+  ${props => props.theme.screen.md} {
+    font-size: ${props => props.theme.font.size.rg};
+  }
 `
 
 const Profile = styled.pre`
-  font-size: ${props => props.theme.font.size.rg};
+  font-size: ${props => props.theme.font.size.sm};
   margin-left: ${props => props.theme.spacing * 2}px;
   white-space: pre-wrap;
+
+  ${props => props.theme.screen.md} {
+    font-size: ${props => props.theme.font.size.rg};
+  }
 `
 
 const Divider = styled.span`
@@ -94,23 +110,22 @@ const Divider = styled.span`
   background-color: ${props => props.theme.colors.palegray};
   height: 2px;
   width: 63px;
-  margin: ${props => props.theme.spacing * 8}px 0;
+  margin: ${props => props.theme.spacing * 2}px 0;
+
+  ${props => props.theme.screen.md} {
+    margin: ${props => props.theme.spacing * 8}px 0;
+  }
 `
 
 const Item: React.FC<Props> = ({ speaker, onClose }) => {
   return (
     <Container>
-      <Header></Header>
       <Main>
         <Figure>
           <CloseButton onClick={onClose}>
             <FontAwesomeIcon icon={faArrowLeft} />
           </CloseButton>
-          <ProfileImage
-            src={`/images/profiles/${speaker.slug}.jpg`}
-            width={185}
-            height={262}
-          />
+          <ProfileImage src={`/images/profiles/${speaker.slug}.jpg`} />
         </Figure>
         <Content>
           <Name>{speaker.name}</Name>

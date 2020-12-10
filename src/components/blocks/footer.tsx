@@ -30,12 +30,12 @@ const Inner = styled.div`
 const Socials = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
+  margin: ${p => p.theme.spacing * 3}px auto;
 
   > * {
     margin: 0 ${p => p.theme.spacing * 2}px;
   }
-
-  margin: 0 ${p => p.theme.spacing * 2}px auto;
 
   ${p => p.theme.screen.md} {
     margin: 0 ${p => p.theme.spacing * 4}px 0;
