@@ -7,7 +7,6 @@ import {
   faClipboard,
   faChalkboardTeacher,
 } from '@fortawesome/free-solid-svg-icons'
-import Linkify from 'react-linkify'
 import Tooltip from 'react-tooltip'
 
 import { MergedSession, Speaker } from 'entities/sessions'
