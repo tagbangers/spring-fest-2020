@@ -215,9 +215,7 @@ const Track: React.FC<Props> = ({ session, speakers }) => {
         )}
       </MediaHolder>
       <Title>{session.title}</Title>
-      <Description>
-        <Linkify>{session.description}</Linkify>
-      </Description>
+      <Description dangerouslySetInnerHTML={{ __html: session.description }} />
       {speaker && <SpeakerModal speaker={speaker} onClose={handleClose} />}
     </Container>
   )
