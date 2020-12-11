@@ -15,7 +15,7 @@ const GridOneThree = styled.div`
 `
 
 const GridTwo = styled.div`
-  padding: ${p => p.theme.spacing(4, 0)};
+  padding: ${p => p.theme.spacing * 4}px 0;
 
   ${p => p.theme.screen.md} {
     display: grid;
@@ -24,12 +24,12 @@ const GridTwo = styled.div`
 `
 
 const DescriptionBox = styled.div`
-  padding: ${p => p.theme.spacing(4, 0)};
+  padding: ${p => p.theme.spacing * 4}px 0;
   color: ${p => p.theme.colors.white};
   position: relative;
 
   ${p => p.theme.screen.md} {
-    padding: ${p => p.theme.spacing(8)};
+    padding: ${p => p.theme.spacing * 8}px;
   }
 
   &::before {
@@ -38,12 +38,12 @@ const DescriptionBox = styled.div`
     height: 4px;
     width: 20%;
     background-color: ${p => p.theme.colors.brand};
-    margin-bottom: ${p => p.theme.spacing(3)};
+    margin-bottom: ${p => p.theme.spacing * 3}px;
 
     ${p => p.theme.screen.md} {
       height: 4px;
       width: 124px;
-      margin-bottom: ${p => p.theme.spacing(6)};
+      margin-bottom: ${p => p.theme.spacing * 6}px;
     }
   }
 
@@ -53,7 +53,7 @@ const DescriptionBox = styled.div`
     font-family: ${p => p.theme.font.family.mono};
     font-size: ${p => p.theme.font.size.xl};
     line-height: 1.4;
-    margin-bottom: ${p => p.theme.spacing(4)};
+    margin-bottom: ${p => p.theme.spacing * 4}px;
   }
 
   p {
@@ -66,22 +66,14 @@ const DescriptionBox = styled.div`
 `
 
 const Contents = styled.div`
-  margin-bottom: ${p => p.theme.spacing(8)};
+  margin-bottom: ${p => p.theme.spacing * 8}px;
 `
 
 const LogoHolder = styled.div`
-  margin: ${p => p.theme.spacing(8, 0, 4, 0)};
+  margin: ${p => p.theme.spacing * 8}px 0 ${p => p.theme.spacing * 4}px 0;
 
   ${p => p.theme.screen.md} {
-    margin: ${p => p.theme.spacing(8, 0)};
-    &:after {
-      display: block;
-      content: '';
-      height: 4px;
-      width: 124px;
-      background-color: ${p => p.theme.colors.brand};
-      margin-top: ${p => p.theme.spacing(6)};
-    }
+    margin: ${p => p.theme.spacing * 8}px 0;
   }
 `
 
@@ -99,7 +91,7 @@ const Logo = styled.div`
 
 const Description = styled.p`
   color: ${p => p.theme.colors.white};
-  padding: ${p => p.theme.spacing(2, 0)};
+  padding: ${p => p.theme.spacing * 2}px 0;
   font-size: ${p => p.theme.font.size.rg};
   line-height: 1.8;
 `

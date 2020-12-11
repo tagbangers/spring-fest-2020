@@ -1,2 +1,5 @@
 export { default as Teaser } from './teaser'
 export { default as Intro } from './intro'
+export { default as Goods } from './goods'
+export { default as TimeTable } from './time-table'
+export { default as Speakers } from './speakers'

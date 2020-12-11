@@ -16,7 +16,7 @@ const Container = styled.a`
   width: 44px;
   height: 44px;
   border-radius: 44px;
-  margin: ${p => p.theme.spacing(0, 1)};
+  margin: 0 ${p => p.theme.spacing}px;
 
   cursor: pointer;
 
@@ -31,19 +31,19 @@ const Blink = styled.span`
   opacity: 0.6;
 `
 
-const Share: React.FC<Props> = ({type}) => {
+const Share: React.FC<Props> = ({ type }) => {
   const [href, setHref] = React.useState('')
 
   const setLocationLazy = () => {
     setTimeout(() => {
       setHref(window.location.origin)
     }, 1000)
-  } 
+  }
 
   React.useEffect(() => {
     setLocationLazy()
   }, [])
-  
+
   if (href === '') {
     return (
       <Container>
@@ -56,16 +56,19 @@ const Share: React.FC<Props> = ({type}) => {
     <Container
       href={
         type === 'twitter'
-        ? `https://twitter.com/share?url=${encodeURIComponent(href)}&text=Spring%20Fest%202020&hashtags=jsug`
-        : `https://www.facebook.com/share.php?u=${encodeURIComponent(href)}`
+          ? `https://twitter.com/share?url=${encodeURIComponent(
+              href
+            )}&text=Spring%20Fest%202020&hashtags=jsug`
+          : `https://www.facebook.com/share.php?u=${encodeURIComponent(href)}`
       }
-      rel="nofollow" 
+      rel="nofollow"
       target="_blank"
-    >{
-      type === 'twitter'
-        ? <FontAwesomeIcon icon={faTwitter} />
-        : <FontAwesomeIcon icon={faFacebookSquare} />
-    }
+    >
+      {type === 'twitter' ? (
+        <FontAwesomeIcon icon={faTwitter} />
+      ) : (
+        <FontAwesomeIcon icon={faFacebookSquare} />
+      )}
     </Container>
   )
 }

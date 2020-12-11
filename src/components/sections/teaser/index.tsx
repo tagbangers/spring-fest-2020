@@ -1,6 +1,5 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import { AnimatePresence, motion } from 'framer-motion'
 
 import { Prompt } from 'components/elements'
 import { Wrapper } from 'components/layouts'
@@ -21,7 +20,7 @@ const Grid = styled.div`
     display: grid;
     height: 65vh;
     grid-template-columns: 1fr 3fr;
-    padding: ${p => p.theme.spacing(6, 0)};
+    padding: ${p => p.theme.spacing * 6}px 0;
   }
 `
 
@@ -38,15 +37,15 @@ const Logo = styled.div`
   background-size: contain;
   background-position: left center;
   height: 60px;
-  margin-bottom: ${p => p.theme.spacing(1)};
+  margin-bottom: ${p => p.theme.spacing}px;
 
   ${p => p.theme.screen.md} {
     height: 130px;
-    margin-bottom: ${p => p.theme.spacing(4)};
+    margin-bottom: ${p => p.theme.spacing * 4}px;
   }
 `
 
-const Background = styled(motion.div)`
+const Background = styled.div`
   background-image: url('/images/dots.png');
   background-repeat: no-repeat;
   background-position: center;
@@ -57,9 +56,23 @@ const Background = styled(motion.div)`
   top: 0;
   left: 0;
   z-index: 0;
+  animation-duration: 1s;
+  animation-name: fadeIn;
 
   ${p => p.theme.screen.md} {
     height: 900px;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.995);
+    }
+
+    100%: {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 `
 
@@ -75,29 +88,21 @@ const Teaser = () => {
   }, [])
 
   return (
-      <Container>
-        <Wrapper>
-          <Grid>
-            <div />
-            <Titles>
-              <Dates on="ONLINE" at="2020.12.17 Thu" />
-              <Logo />
-              <Prompt size={theme.font.size.x3l} delay={1200}>2020</Prompt>
-            </Titles>
-          </Grid>
-        </Wrapper>
-        <AnimatePresence>
-          {ready && (
-            <Background
-              initial={{ opacity: 0, scale: 0.995 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                duration: 3
-              }}
-            />
-          )}
-        </AnimatePresence>
-      </Container>
+    <Container>
+      <Wrapper>
+        <Grid>
+          <div />
+          <Titles>
+            <Dates on="ONLINE" at="2020.12.17 Thu" />
+            <Logo />
+            <Prompt size={theme.font.size.x3l} delay={1200}>
+              2020
+            </Prompt>
+          </Titles>
+        </Grid>
+      </Wrapper>
+      {ready && <Background />}
+    </Container>
   )
 }
 
