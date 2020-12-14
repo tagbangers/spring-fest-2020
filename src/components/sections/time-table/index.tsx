@@ -1,6 +1,8 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import { groupBy } from 'ramda'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFilePdf } from '@fortawesome/free-solid-svg-icons'
 
 import { Sessions, Speaker } from 'entities/sessions'
 import { Wrapper } from 'components/layouts'
@@ -21,6 +23,16 @@ const Container = styled.div`
   padding: ${props => props.theme.spacing * 10}px 0 0 0;
 `
 
+const DownloadLink = styled.a`
+  background-color: ${props => props.theme.colors.brand};
+  font-size: ${props => props.theme.font.size.sm};
+  color: ${props => props.theme.colors.white};
+  padding: ${props => props.theme.spacing}px
+    ${props => props.theme.spacing * 2}px;
+  display: inline-block;
+  margin: ${props => props.theme.spacing * 2}px 0;
+`
+
 const TimeTable: React.FC<Props> = ({ sessions, speakers }) => {
   const grouped = groupBy(
     s => (s.track === 'advanced' ? 'advanced' : 'beginners'),
@@ -33,6 +45,10 @@ const TimeTable: React.FC<Props> = ({ sessions, speakers }) => {
         <Prompt size={theme.font.size.x2l} delay={800}>
           ONLINE_TALKS
         </Prompt>
+        <DownloadLink href="/timetable.pdf" target="_blank">
+          <FontAwesomeIcon icon={faFilePdf} />
+          &nbsp;タイムテーブルダウンロード
+        </DownloadLink>
         <Tracks
           advancedTracks={grouped['advanced']}
           beginnerTracks={grouped['beginners']}

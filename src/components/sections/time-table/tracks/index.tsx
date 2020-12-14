@@ -1,7 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { Wrapper } from 'components/layouts'
 import { ITheme } from 'components/foundations/theme'
 import { Sessions, Speaker } from 'entities/sessions'
 
@@ -93,30 +92,28 @@ const Tracks: React.FC<Props> = ({
 
   return (
     <Container>
-      <Wrapper>
-        <TabContainer>
-          <Tab
-            onClick={toggleTab(Tabs.Advanced)}
-            active={activeTab === Tabs.Advanced}
-          >
-            1. _Advanced Track;
-          </Tab>
-          <Tab
-            onClick={toggleTab(Tabs.Beginner)}
-            active={activeTab === Tabs.Beginner}
-          >
-            2. _Beginner Track;
-          </Tab>
-        </TabContainer>
-        <TabContents>
-          <Notion>※ 現在、各セッションは仮の内容です</Notion>
-          {activeTab === Tabs.Advanced ? (
-            <Track sessions={advancedTracks} speakers={speakers} />
-          ) : (
-            <Track sessions={beginnerTracks} speakers={speakers} />
-          )}
-        </TabContents>
-      </Wrapper>
+      <TabContainer>
+        <Tab
+          onClick={toggleTab(Tabs.Advanced)}
+          active={activeTab === Tabs.Advanced}
+        >
+          1. _Advanced Track;
+        </Tab>
+        <Tab
+          onClick={toggleTab(Tabs.Beginner)}
+          active={activeTab === Tabs.Beginner}
+        >
+          2. _Beginner Track;
+        </Tab>
+      </TabContainer>
+      <TabContents>
+        <Notion>※ 現在、各セッションは仮の内容です</Notion>
+        {activeTab === Tabs.Advanced ? (
+          <Track sessions={advancedTracks} speakers={speakers} />
+        ) : (
+          <Track sessions={beginnerTracks} speakers={speakers} />
+        )}
+      </TabContents>
       <Background />
     </Container>
   )
