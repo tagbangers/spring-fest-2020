@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 import { groupBy } from 'ramda'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFilePdf } from '@fortawesome/free-solid-svg-icons'
+import { faFilePdf, faClipboard } from '@fortawesome/free-solid-svg-icons'
 
 import { Sessions, Speaker } from 'entities/sessions'
 import { Wrapper } from 'components/layouts'
@@ -33,6 +33,13 @@ const DownloadLink = styled.a`
   margin: ${props => props.theme.spacing * 2}px 0;
 `
 
+const Enquete = styled.p`
+  margin: ${props => props.theme.spacing * 2}px 0;
+  a {
+    color: ${props => props.theme.colors.brand};
+  }
+`
+
 const TimeTable: React.FC<Props> = ({ sessions, speakers }) => {
   const grouped = groupBy(
     s => (s.track === 'advanced' ? 'advanced' : 'beginners'),
@@ -49,6 +56,15 @@ const TimeTable: React.FC<Props> = ({ sessions, speakers }) => {
           <FontAwesomeIcon icon={faFilePdf} />
           &nbsp;タイムテーブルダウンロード
         </DownloadLink>
+        <Enquete>
+          <a
+            href="https://jsug-enquete.apps.pcfone.io/seminars/00000000-0000-0000-0000-000020201217"
+            target="_blank"
+          >
+            Spring Fest 2020に関するアンケート
+          </a>
+          にご協力お願いします。各セッションのアンケートは下記セッションの「アンケート」からお願いします。
+        </Enquete>
         <Tracks
           advancedTracks={grouped['advanced']}
           beginnerTracks={grouped['beginners']}

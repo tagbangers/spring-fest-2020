@@ -118,12 +118,19 @@ const Media = styled.a`
 `
 
 const TextLink = styled.a`
-  display: block;
+  display: flex;
+  align-items: center;
+  height: 44px;
   color: ${props => props.theme.colors.brand};
   margin-right: ${props => props.theme.spacing * 4}px;
+  cursor: pointer;
+  position: relative;
+  top: -1px;
 
   label {
+    cursor: pointer;
     display: inline-block;
+    font-size: ${props => props.theme.font.size.sm};
     margin: 0 ${props => props.theme.spacing}px;
   }
 `
