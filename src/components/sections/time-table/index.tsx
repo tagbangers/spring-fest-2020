@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 import { groupBy } from 'ramda'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFilePdf, faClipboard } from '@fortawesome/free-solid-svg-icons'
+import { faFilePdf } from '@fortawesome/free-solid-svg-icons'
 
 import { Sessions, Speaker } from 'entities/sessions'
 import { Wrapper } from 'components/layouts'
