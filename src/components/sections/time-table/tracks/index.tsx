@@ -70,11 +70,6 @@ const Background = styled.div`
   background-position: center;
 `
 
-const Notion = styled.p`
-  color: ${props => props.theme.colors.gray};
-  font-size: ${props => props.theme.font.size.sm};
-`
-
 enum Tabs {
   Advanced,
   Beginner,
