@@ -107,7 +107,6 @@ const Tracks: React.FC<Props> = ({
         </Tab>
       </TabContainer>
       <TabContents>
-        <Notion>※ 現在、各セッションは仮の内容です</Notion>
         {activeTab === Tabs.Advanced ? (
           <Track sessions={advancedTracks} speakers={speakers} />
         ) : (
