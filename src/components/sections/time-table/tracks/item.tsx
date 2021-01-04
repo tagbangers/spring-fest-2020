@@ -187,7 +187,7 @@ const Track: React.FC<Props> = ({ session, speakers }) => {
           >
             <FontAwesomeIcon icon={faYoutube} color="#DE5B40" />
             <Tooltip id="youtube" effect="solid">
-              Youtube Liveで視聴する
+              Youtubeで視聴する
             </Tooltip>
           </Media>
         )}
